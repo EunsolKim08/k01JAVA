@@ -12,13 +12,11 @@ public class HRSelected {
 		try {
 			
 			Class.forName("oracle.jdbc.OracleDriver");
-			
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String id = "hr";  
+			String id = "hr";
 			String pass = "1234";
-			
-			
-			Connection con = DriverManager.getConnection(url, id,pass);
+		 
+			Connection con = DriverManager.getConnection(url,id,pass);			
 			if(con!= null) {
 				System.out.println("Oracle 연결성공");
 				/*
@@ -27,8 +25,8 @@ public class HRSelected {
 				 이어지게되어 syntaxError가 발생한다.
 				 */
 				
-				String sql ="SELECT * FROM employees WHERE "
-						+ " department_id = 20 "
+				String sql = "SELECT * FROM employees WHERE "
+						+ " department_id=50 " // department_id = 20이면 다른결과 나타남.
 						+ " ORDER BY employee_id DESC";
 				/*
 				 2. 쿼리문 전송을 위한 Statement인터페이스를 통한 객체를
